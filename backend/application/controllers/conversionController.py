@@ -9,7 +9,6 @@ from backend.application.config import BASE_URL, UPLOAD_PATH, CONVERSION_PATH
 from backend.application.models.deepLearningModel import DeepLearningModel
 
 from backend.application.models.resultModel import Result
-from backend.application.service.outService import addOutResult
 
 conversion_bp = Blueprint('conversion', __name__, static_folder='../static/image/conversion')
 
@@ -36,6 +35,5 @@ def upload_pic():
         img.save(os.path.join(UPLOAD_PATH, save_name))
         model.handle(os.path.join(UPLOAD_PATH, save_name), os.path.join(CONVERSION_PATH, save_name))
         msg = f"{BASE_URL}/static/conversion/out/{save_name}"
-        addOutResult(username, msg)
         urls.append(msg)
     return Result().success(data=urls)

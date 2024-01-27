@@ -18,4 +18,10 @@ def create_app():
     app.register_blueprint(conversion_bp)
     from backend.application.controllers.modelController import model_bp
     app.register_blueprint(model_bp)
+    from backend.application.controllers.outController import out_bp
+    app.register_blueprint(out_bp)
+    from backend.application.controllers.statisicsController import statistics_bp
+    app.register_blueprint(statistics_bp)
+    from backend.application.controllers.optionController import option_bp
+    app.register_blueprint(option_bp)
     return app

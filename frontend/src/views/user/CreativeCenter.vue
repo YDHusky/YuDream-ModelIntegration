@@ -31,7 +31,7 @@ let inputData = ref({
       Authorization: "Bearer " + sessionStorage.getItem("token")
     }
   },
-  imageUrl: ""
+  imageUrl: "",
 })
 </script>
 
@@ -51,7 +51,7 @@ let inputData = ref({
 }
 .select-image {
   width: 45%;
-  height: Calc(100vh - 100px);
+  height: Calc(100vh - 120px);
   margin: 0 auto 0 0;
 }
 .out-image{

@@ -1,11 +1,10 @@
-import {createRouter, createWebHashHistory, createWebHistory} from 'vue-router'
+import {createRouter, createWebHashHistory} from 'vue-router'
 import MainLayout from "@/components/layout/MainLayout.vue";
 import LoginPage from "@/views/login/LoginPage.vue";
 import UserLayout from "@/components/layout/UserLayout.vue";
 import UserPage from "@/views/user/UserPage.vue";
 import CreativeCenter from "@/views/user/CreativeCenter.vue";
 import WorksPage from "@/views/user/WorksPage.vue";
-import CollectionPage from "@/views/user/CollectionPage.vue";
 import SettingPage from "@/views/user/SettingPage.vue";
 import AdminPage from "@/views/admin/AdminPage.vue";
 import AdminLayout from "@/components/layout/AdminLayout.vue";
@@ -52,11 +51,6 @@ const router = createRouter({
               path: '/user/works',
               name: 'Works',
               component: WorksPage
-          },
-          {
-              path: '/user/collection',
-              name: 'Collection',
-              component: CollectionPage
           },
           {
               path: '/user/setting',

@@ -36,12 +36,7 @@
         </el-icon>
         <span v-if="!is_expend" slot="title">我的作品</span>
       </el-menu-item>
-      <el-menu-item route="/user/collection" index="/user/collection">
-        <el-icon>
-          <Star/>
-        </el-icon>
-        <span v-if="!is_expend" slot="title">我的收藏</span>
-      </el-menu-item>
+
       <el-menu-item route="/user/setting" index="/user/setting">
         <el-icon>
           <Setting/>
@@ -67,9 +62,9 @@
 <script lang="ts" setup>
 import {ref} from 'vue'
 import {
-  DataLine, Grid,
+   Grid,
   HomeFilled,
-  Menu as IconMenu, Monitor, Notebook, Setting, Star, User,
+  Monitor, Notebook, Setting,
 } from '@element-plus/icons-vue'
 import {user_info_md} from "@/services/modules/user";
 

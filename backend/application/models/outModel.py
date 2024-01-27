@@ -12,11 +12,14 @@ class OutResult(db.Model):
     create_time = db.Column(db.DateTime)
     # 是否删除
     is_delete = db.Column(db.Integer, default=0)
+    # 作品名字
+    work_name = db.Column(db.String(255))
 
     def to_json(self):
         return {
             'id': self.id,
             'username': self.username,
+            'work_name': self.work_name,
             'url': self.url,
             'create_time': self.create_time,
             'is_delete': self.is_delete

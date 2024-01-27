@@ -5,6 +5,10 @@ import HeaderMenu from "@/components/user/HeaderMenu.vue";
 import {ref} from "vue";
 
 let is_expand = ref(false)
+const getHeight = () => {
+  return window.innerHeight - 120 + 'px'
+}
+let height = ref(getHeight())
 </script>
 
 <template>
@@ -18,7 +22,9 @@ let is_expand = ref(false)
           <AsideMenu v-model="is_expand"></AsideMenu>
         </el-aside>
         <el-main>
-          <router-view/>
+          <el-scrollbar :height="height">
+            <router-view/>
+          </el-scrollbar>
         </el-main>
       </el-container>
     </el-container>

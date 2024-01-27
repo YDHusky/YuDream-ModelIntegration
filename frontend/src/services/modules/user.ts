@@ -33,3 +33,8 @@ export async function user_info_md(){
          return null;
     }
 }
+export function statistics_md(){
+    return Request.get({
+        url: '/statistics'
+    });
+}
