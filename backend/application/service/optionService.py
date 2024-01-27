@@ -1,3 +1,4 @@
+from backend.application.extensions import db
 from backend.application.models.optionModel import Option
 
 
@@ -12,4 +13,6 @@ def getOption(info):
 def setOption(key, value):
     option = Option.query.filter_by(key=key).first()
     option.value = value
-    return option.save()
+    option.save()
+    db.commit()
+    return option.to_json()

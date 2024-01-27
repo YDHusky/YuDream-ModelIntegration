@@ -1,8 +1,11 @@
 import json
+import os
 
 from flask import Blueprint, request
 from flask_jwt_extended import jwt_required, get_jwt_identity
+from werkzeug.utils import secure_filename
 
+from backend.application.config import AVTAR_PATH
 from backend.application.models.resultModel import Result
 from backend.application.service.userService import *
 
@@ -68,3 +71,19 @@ def info():
         return Result().fail(message='用户不存在', data={
             'username': username
         })
+
+
+@user_bp.route('/info/update/avtar', methods=['POST'])
+@jwt_required()
+def info_update():
+    username = get_jwt_identity()
+    user = find_user(username)
+    avtar_img = request.files.getlist("avtar")
+    for avtar in avtar_img:
+        filename = secure_filename(avtar.filename)
+        suffix = filename.split('.')[-1]
+        save_name = username + '_' + time.time().__str__() + '.' + suffix
+        avtar.save(os.path.join(AVTAR_PATH, save_name))
+        user.avatar = f"{BASE_URL}/static/images/user/avatar/{save_name}"
+        db.session.commit()
+        return Result().success(data=user.to_json())
