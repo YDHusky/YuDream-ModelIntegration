@@ -9,14 +9,7 @@
         :ellipsis="false"
         onselect=""
     >
-      <el-button @click="expend" style="margin-left: 10px" link>
-        <el-icon v-if="!is_expend" size="25px">
-          <Fold/>
-        </el-icon>
-        <el-icon v-if="is_expend" size="25px">
-          <Expand/>
-        </el-icon>
-      </el-button>
+
       <div class="flex-grow"/>
       <el-menu-item route="/" index="/">主页</el-menu-item>
       <div class="disabled">
@@ -27,9 +20,9 @@
                 :src="avatar"/>
           </template>
           <el-menu-item route="/user" index="3-1">个人中心</el-menu-item>
-          <el-menu-item route="/" index="3-2">创建作品</el-menu-item>
+          <el-menu-item route="/user/works" index="3-2">创建作品</el-menu-item>
           <el-menu-item route="/" index="3-3" @click="logout">退出登录</el-menu-item>
-          <el-menu-item route="/" index="3-4" v-if="is_admin">管理面板</el-menu-item>
+          <el-menu-item route="/admin" index="3-4" v-if="is_admin">管理面板</el-menu-item>
         </el-sub-menu>
       </div>
     </el-menu>

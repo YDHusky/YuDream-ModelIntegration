@@ -1,9 +1,19 @@
 {
   "name": "anime",
-  "displayName": "动漫化",
-  "description": "宫崎骏风格动漫化模型",
-  "author": "YuDream Studio",
+  "displayName": "\u52a8\u6f2b\u5316",
+  "description": "\u5bab\u5d0e\u9a8f\u98ce\u683c\u52a8\u6f2b\u5316\u6a21\u578b",
+  "author": "YuDream",
   "version": "1.0.0",
-  "inShape": [1,null,null,3],
-  "outShape": [1,null,null,3]
+  "inShape": [
+    1,
+    null,
+    null,
+    3
+  ],
+  "outShape": [
+    1,
+    null,
+    null,
+    3
+  ]
 }

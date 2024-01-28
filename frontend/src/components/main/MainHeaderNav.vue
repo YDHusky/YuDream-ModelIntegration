@@ -23,9 +23,9 @@
                 :src="avatar"/>
           </template>
           <el-menu-item route="/user" index="3-1">个人中心</el-menu-item>
-          <el-menu-item route="/" index="3-2">创建作品</el-menu-item>
+          <el-menu-item route="/user/works" index="3-2">创建作品</el-menu-item>
           <el-menu-item route="/" index="3-3" @click="logout">退出登录</el-menu-item>
-          <el-menu-item route="/" index="3-4" v-if="is_admin">管理面板</el-menu-item>
+          <el-menu-item route="/admin" index="3-4" v-if="is_admin">管理面板</el-menu-item>
         </el-sub-menu>
       </div>
     </el-menu>

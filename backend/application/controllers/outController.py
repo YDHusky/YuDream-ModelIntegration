@@ -4,7 +4,9 @@ from flask import Blueprint, request
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
 from backend.application.models.resultModel import Result
-from backend.application.service.outService import findOutResult, addOutResult, deleteOutResult, editOutResult
+from backend.application.service.outService import findOutResult, addOutResult, deleteOutResult, editOutResult, \
+    findOutAllResult
+from backend.application.service.userService import find_user
 
 out_bp = Blueprint('out', __name__)
 
@@ -43,3 +45,13 @@ def editWorks():
     id = data.get('id')
     work_name = data.get('work_name')
     return Result().success(data=editOutResult(id, work_name, username))
+
+
+@out_bp.route('/out/all', methods=['GET'])
+@jwt_required()
+def getAllWorks():
+    username = get_jwt_identity()
+    user = find_user(username)
+    if user.role < 3:
+        return Result().fail(message='权限不足')
+    return Result().success(data=findOutAllResult())

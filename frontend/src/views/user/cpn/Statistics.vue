@@ -19,7 +19,7 @@ onMounted(() => {
 
 <template>
   <el-card header="统计">
-<el-row :gutter="50">
+    <el-row :gutter="50">
       <el-col :span="12">
         <el-statistic title="模型个数" :value="statistics['model_num']"></el-statistic>
       </el-col>

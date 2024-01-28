@@ -13,6 +13,5 @@ def getOption(info):
 def setOption(key, value):
     option = Option.query.filter_by(key=key).first()
     option.value = value
-    option.save()
-    db.commit()
+    db.session.commit()
     return option.to_json()

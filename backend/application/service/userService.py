@@ -65,3 +65,45 @@ def get_user_role(username):
         return user.role
     else:
         return None
+
+
+def update_user_info(username, nickname, phone, email):
+    user = find_user(username)
+    user.nickname = nickname
+    user.phone = phone
+    user.email = email
+    db.session.commit()
+    return user.to_json()
+
+
+def update_user_admin(username, nickname, phone, email, role):
+    user = find_user(username)
+    user.nickname = nickname
+    user.phone = phone
+    user.email = email
+    user.role = role
+    db.session.commit()
+    return user.to_json()
+
+
+def update_password(username, original_password, password):
+    user = find_user(username)
+    if user.password != md5(original_password.encode()).hexdigest():
+        return None
+    user.password = md5(password.encode()).hexdigest()
+    db.session.commit()
+    return user.to_json()
+
+
+def update_password_by_admin(username, password):
+    user = find_user(username)
+    user.password = md5(password.encode()).hexdigest()
+    db.session.commit()
+    return user.to_json()
+
+
+def delete_user(username):
+    user = find_user(username)
+    db.session.delete(user)
+    db.session.commit()
+    return user.to_json()

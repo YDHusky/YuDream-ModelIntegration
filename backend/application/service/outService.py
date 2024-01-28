@@ -32,3 +32,8 @@ def editOutResult(work_id, work_name, username):
     data.work_name = work_name
     db.session.commit()
     return True
+
+
+def findOutAllResult():
+    data = OutResult.query.all()
+    return [i.to_json() for i in data]

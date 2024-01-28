@@ -33,3 +33,8 @@ export function update_works_md(id:any, work_name:string){
         }
     });
 }
+export function get_all_works_md(){
+    return Request.get({
+        url: '/out/all'
+    });
+}

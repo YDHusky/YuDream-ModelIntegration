@@ -16,7 +16,7 @@ def readModelMeta(meta_path):
 
 def saveImg(img, img_out_path):
     result = np.squeeze(img)
-    output_mask = result * 255.
+    output_mask = (result + 1) * 127.5
     output_mask = np.clip(output_mask, 0, 255)
     output_image = cv2.cvtColor(output_mask.astype('uint8'), cv2.COLOR_BGR2RGB)
     cv2.imwrite(str(img_out_path), output_image)

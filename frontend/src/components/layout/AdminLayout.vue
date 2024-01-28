@@ -1,24 +1,28 @@
 <script setup lang="ts">
 
-import AsideMenu from "@/components/user/AsideMenu.vue";
 import HeaderMenu from "@/components/user/HeaderMenu.vue";
+import AdminAsideMenu from "@/components/admin/AdminAsideMenu.vue";
 import {ref} from "vue";
-
-let is_expand = ref(false)
+const getHeight = () => {
+  return window.innerHeight - 120 + 'px'
+}
+let height = ref(getHeight())
 </script>
 
 <template>
   <div class="common-layout">
     <el-container>
       <el-header class="header">
-        Header
+        <HeaderMenu/>
       </el-header>
       <el-container>
         <el-aside width="200px">
-          Aside
+          <AdminAsideMenu></AdminAsideMenu>
         </el-aside>
         <el-main>
-          <router-view/>
+          <el-scrollbar :height="height">
+            <router-view/>
+          </el-scrollbar>
         </el-main>
       </el-container>
     </el-container>
@@ -26,7 +30,7 @@ let is_expand = ref(false)
 </template>
 
 <style scoped>
-.header{
+.header {
   padding: 0;
 }
 </style>

@@ -49,7 +49,7 @@ async function asy_login(user: login_user) {
         </el-form-item>
         <el-form-item>
           <el-button link>忘记密码</el-button>
-          <el-button style="margin: 0 0 0 auto" link>还没有账号?点我注册</el-button>
+          <el-button @click="router.push('/register')" style="margin: 0 0 0 auto" link>还没有账号?点我注册</el-button>
         </el-form-item>
       </el-form>
     </el-card>
